@@ -1,31 +1,28 @@
-class Solution {
+class Solution 
+{
 public:
     bool isPalindrome(int x) 
     {
-        int i, j;
-        string s;
-        if (x < 0)
+        if(x < 0)
         {
             return false;
         }
-        else
+        string s = to_string(x);
+        int first = 0;
+        int last = s.length() - 1;
+        while(first < last)
         {
-            s = to_string(x);
-            i = 0; 
-            j = s.size() - 1;
-            while (i < (s.size() / 2))
+            if(s[first] != s[last])
             {
-                if (s[i] == s[j])
-                {
-                    i++; 
-                    j--;
-                }
-                else
-                {
-                    return false;
-                }
+                return false;
             }
-            return true;
+            first++;
+            last--;
         }
+        return true;
     }
 };
+
+// Synced seamlessly with LeetHub Pro
+// Pro features: https://bit.ly/leethubpro | Free version: https://bit.ly/leethubv4
+// Get it here: https://chromewebstore.google.com/detail/bcilpkkbokcopmabingnndookdogmbna
